@@ -1,0 +1,132 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+
+#selection {
+  &--consumer {
+    font-family: Roboto-Regular;
+    font-size: 20px;
+  
+    background-color: $buttons;
+    color: $alternate-font-color;
+    width: 20rem;
+    height: 4rem;
+  
+    margin: 0.5rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $buttons-hover;
+    }
+  }
+  &--seller {
+    @extend #selection--consumer;
+  }
+  &--monitoring-dashboard {
+    @extend #selection--consumer;
+  }
+
+}
+
+#cartoon {
+  position:fixed;
+  left: 58vw;
+  top: 50vh;
+  width: 35vw;
+}
+
+p.footnote {
+  font-family: Roboto-Regular;
+  width: 30vw;
+  margin-top: 75%;
+}
+
+.homepage {
+  width: 25vw;
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-top: 2.5rem;
+    margin-left: 4rem;
+
+    &__title {
+      font-family: Roboto-Regular;
+      margin-bottom: 1rem;
+    }
+  
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--consumer {
+        display: flex;
+        flex-direction: row;
+      }
+
+      &--seller {
+        @extend .homepage__main__buttons--consumer;
+      }
+
+      &--monitoring-dashboard {
+        @extend .homepage__main__buttons--consumer;
+      }
+
+      &__text {
+        &--consumer {
+          display: none;
+          font-family: Roboto-Regular;
+          color: $alternate-font-color;
+          width: 55vw;
+          padding: 0.75rem;
+          margin-left: 1.5rem;
+          border-radius: 0.75rem;
+
+          background-color: $header-background;
+          z-index: 1;
+
+          position: absolute;
+          margin-left: 22rem;
+         
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            right: 100%;
+            margin-top: -0.2rem;
+            border-width: 0.9rem;
+            border-style: solid;
+            border-color: transparent $header-background transparent transparent;
+          }
+
+        }
+
+        &--seller {
+          @extend .homepage__main__buttons__text--consumer;
+        }
+
+        &--monitoring-dashboard {
+          @extend .homepage__main__buttons__text--consumer;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            right: 100%;
+            margin-top: -0.06rem;
+            border-width: 0.6rem;
+       
+          }
+        }
+      }
+    }
+  }
+}
