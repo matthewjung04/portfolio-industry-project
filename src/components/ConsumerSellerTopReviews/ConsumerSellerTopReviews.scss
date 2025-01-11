@@ -3,6 +3,12 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
+#options {
+  display: none;
+  padding: 0.75rem 1rem;
+  margin: 0;
+}
+
 .top-reviews {
 
   &__title {
@@ -10,22 +16,63 @@
     font-size: 24px;
   }
 
-  &__images {
-    margin-left: 3rem;
-
+  &__form {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
 
-    &--one {
-      height: 30vh;
-      width: 20vw;
-      border: 2px solid $header-background;
-      margin-right: 2rem;
+    &__label {
+      padding-right: 0.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    &--two {
-      @extend .top-reviews__images--one;
+    &__search {
+      box-sizing: border-box;
+      background-image: url('../../assets/icons/search_24dp.svg');
+      background-position: left;
+      background-size: 1.5rem;
+      background-repeat: no-repeat;
+
+      width: 10rem;
+      height: 2rem;
+      padding: 0.3rem 1.75rem;
+      border: 1px solid $dropdown-background;
+      border-radius: 8px;
+
+      &__options-list {
+        display: none ;
+        background-color: #FFF;
+        width: 25vw;
+        margin-top: 1rem;
+        // padding: 0.25rem 1rem;
+        border-radius: 5px;
+
+        &__options {
+
+          &:hover {
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: $buttons;
+            color: #FFF;
+          }
+        }
+      }
+    }
+
+    &__button {
+      cursor: pointer;
+      width: 5rem;
+      height: 2rem;
+      color: #FFF;
+      background-color: $buttons;
+
+      padding: 0.5rem 0;
+      border: none;
+      border-radius: 10px;
+      margin-top: 1.5rem;
+
+      &:active {
+        background-color: $dropdown-background;
+      }
     }
   }
 
@@ -44,5 +91,5 @@
       font-family: Roboto-Regular;
     }
   }
-  
+
 }

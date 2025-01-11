@@ -14,9 +14,6 @@
 - [Gennaro Costantino](https://github.com/gennarocostantino)
 - [Matthew Jung](https://github.com/matthewjung04)
 
-## API
-- [Demo template backend](https://github.com/matthewjung04/brainstation-industry-project-api.git)
-
 ## Documents
 - [Tableau API](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm?_gl=1*nbp8q6*_ga*MTQzNzk0OTA5LjE3MzAyNDkxNDM.*_ga_8YLN0SNXVS*MTczMDc3Mjc4OS4xNi4xLjE3MzA3NzI4MDQuMC4wLjA.)
 
