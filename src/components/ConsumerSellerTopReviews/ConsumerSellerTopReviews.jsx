@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import data from '../../utils/amazon_data.json'
+import starIcon from '../../assets/icons/star-icon.png'
+import starFilledIcon from '../../assets/icons/star-icon-filled.png'
 import './ConsumerSellerTopReviews.scss'
 
 function ConsumerSellerTopReviews() {
@@ -41,7 +43,42 @@ function ConsumerSellerTopReviews() {
     setTargetItem(e.target.reviewItem.value);
     const targetReviews = data.filter(item => item.brand == e.target.reviewItem.value);
     setReviews(targetReviews);
-    console.log(reviews)
+  }
+
+  const oneStar = (rate) => {
+    if(rate.rating >= 1) {
+      return starFilledIcon;
+    } else {
+      return starIcon;
+    }
+  }
+  const twoStar = (rate) => {
+    if(rate.rating >= 2) {
+      return starFilledIcon;
+    } else {
+      return starIcon;
+    }
+  }
+  const threeStar = (rate) => {
+    if(rate.rating >= 3) {
+      return starFilledIcon;
+    } else {
+      return starIcon;
+    }
+  }
+  const fourStar = (rate) => {
+    if(rate.rating >= 4) {
+      return starFilledIcon;
+    } else {
+      return starIcon;
+    }
+  }
+  const fiveStar = (rate) => {
+    if(rate.rating == 5) {
+      return starFilledIcon;
+    } else {
+      return starIcon;
+    }
   }
 
   return (
@@ -78,11 +115,11 @@ function ConsumerSellerTopReviews() {
                   </p>
 
                   <div>
-                    <span>☆</span>
-                    <span>☆</span>
-                    <span>☆</span>
-                    <span>☆</span>
-                    <span>☆</span>
+                    <img src={oneStar(review)} alt='ratings' id='star-image'/>
+                    <img src={twoStar(review)} alt='ratings' id='star-image'/>
+                    <img src={threeStar(review)} alt='ratings' id='star-image'/>
+                    <img src={fourStar(review)} alt='ratings' id='star-image'/> 
+                    <img src={fiveStar(review)} alt='ratings' id='star-image'/>
                   </div>
                   
                   <p className='top-reviews__results__list__summary'>{review.summary}</p>
