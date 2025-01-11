@@ -32,7 +32,7 @@ function Navigation() {
       <article className='header__nav'>
         <div className='header__nav__menu' onMouseOver={hoverEffect} onMouseLeave={hoverExit}>
           <Link 
-            to='/consumer-seller'
+            to='/consumer-seller/undefined'
             reloadDocument
             className='header__nav__menu__item'
             id='consumer-seller-menu' 
