@@ -46,11 +46,6 @@ function Navigation() {
               Tableau Dashboard
             </Link>
             <Link
-              to='/consumer-seller/pros-and-cons'
-              className='header__nav__menu__item__dropDown__items'>
-              Pros and Cons
-            </Link>
-            <Link
               to='/consumer-seller/top-reviews'
               className='header__nav__menu__item__dropDown__items'>
               Top Reviews

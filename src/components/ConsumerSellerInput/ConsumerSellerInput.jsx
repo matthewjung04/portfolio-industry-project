@@ -21,7 +21,6 @@ function ConsumerSellerInput({submit}) {
         <select name='dataModel' form='dataForm' onChange={submit} className='user-choice__form__options' id='user-selection'>
           <option>-- No Selection --</option>
           <option value='tableau-dashboard'>Tableau Dashboard</option>
-          <option value='pros-and-cons'>Pros and Cons</option>
           <option value='top-reviews'>Top Reviews</option>
         </select>
       </form>

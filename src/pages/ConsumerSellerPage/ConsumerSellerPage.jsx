@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ConsumerSellerInput from '../../components/ConsumerSellerInput/ConsumerSellerInput';
 import ConsumerSellerTableau from '../../components/ConsumerSellerTableau/ConsumerSellerTableau';
-import ConsumerSellerProsAndCons from '../../components/ConsumerSellerProsAndCons/ConsumerSellerProsAndCons';
 import ConsumerSellerTopReviews from '../../components/ConsumerSellerTopReviews/ConsumerSellerTopReviews';
 
 import './ConsumerSellerPage.scss';
