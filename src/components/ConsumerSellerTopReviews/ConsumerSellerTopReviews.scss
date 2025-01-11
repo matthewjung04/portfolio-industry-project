@@ -76,6 +76,31 @@
     }
   }
 
+  &__results {
+    margin: 3rem 0;
+
+    &__title {
+      font-family: Roboto-Medium;
+      font-size: 24px;
+      border-bottom: 1px solid $divider;
+    }
+
+    &__list {
+      margin-bottom: 2.25rem;
+      &__name {
+        font-family: Roboto-Bold;
+        margin: 0;
+      }
+
+      &__summary {
+        font-family: Roboto-Italic;
+        margin: 0;
+        margin-top: 0.5rem;
+      }
+    }
+
+  }
+
   &__notes {
     width: 50vw;
     margin: 1rem 0 3rem 0;

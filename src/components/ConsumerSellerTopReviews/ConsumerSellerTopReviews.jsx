@@ -4,8 +4,8 @@ import data from '../../utils/amazon_data.json'
 import './ConsumerSellerTopReviews.scss'
 
 function ConsumerSellerTopReviews() {
-  const [positiveReviews, setPositiveReviews] = useState(null);
-  const [negativeReviews, setNegativeReviews] = useState(null);
+  const [reviews, setReviews] = useState(null);
+  const [targetItem, setTargetItem] = useState(null);
 
   const filterOptions = () => {
     const input = document.getElementById("myInput");
@@ -27,7 +27,6 @@ function ConsumerSellerTopReviews() {
         p[i].style.display = "none";
         list.style.display = "none";
       }
-
     }
   }
 
@@ -37,8 +36,12 @@ function ConsumerSellerTopReviews() {
     document.getElementById('options-list').style.display = 'none';
   }
 
-  const formHandler = (e) => {
+  const formHandler = async (e) => {
     e.preventDefault()
+    setTargetItem(e.target.reviewItem.value);
+    const targetReviews = data.filter(item => item.brand == e.target.reviewItem.value);
+    setReviews(targetReviews);
+    console.log(reviews)
   }
 
   return (
@@ -46,20 +49,51 @@ function ConsumerSellerTopReviews() {
       <h1 className='top-reviews__title'>Consumer Seller Top Reviews</h1>
 
       <form className='top-reviews__form' id='reviewsForm' onSubmit={formHandler}>
-        <label htmlFor='review-item' className='top-reviews__form__label'>Select an item to display top reviews:</label>
+        <label htmlFor='reviewItem' className='top-reviews__form__label'>Select an item to display top reviews:</label>
         <div id='items-search'>
-          <input type="text" placeholder="Search.." id="myInput"  className='top-reviews__form__search' onKeyUp={filterOptions}/>
+          <input type="text" placeholder="Search.." id="myInput"  name='reviewItem' className='top-reviews__form__search' onKeyUp={filterOptions}/>
           <div className='top-reviews__form__search__options-list' id='options-list'>
             {
               data.map((item) => (
-                <p key={uuidv4()} id='options' className='top-reviews__form__search__options-list__options' onClick={optionSelect}>{item.itemName}</p>
+                <p key={uuidv4()} id='options' className='top-reviews__form__search__options-list__options' onClick={optionSelect}>{item.brand}</p>
                 )
               )
             }
           </div>
         </div>
-        <button type='button' class='top-reviews__form__button'>Submit</button>
+        <button type='submit' className='top-reviews__form__button'>Submit</button>
       </form>
+
+      {
+        reviews ? (
+          <article className='top-reviews__results'>
+          <h1 className='top-reviews__results__title'>Results</h1>
+          {
+            reviews ? (
+              reviews.map((review) => (
+                <div key={uuidv4()} className='top-reviews__results__list'>
+                  <p className='top-reviews__results__list__name'>
+                    {review.itemName}
+                    <span>{` ($${review.price})`}</span>
+                  </p>
+
+                  <div>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                  </div>
+                  
+                  <p className='top-reviews__results__list__summary'>{review.summary}</p>
+                </div>
+              ))
+            ) : null
+          }
+          </article>
+        ) : null
+      }
+
 
       <div className='top-reviews__notes'>
         <h2 className='top-reviews__notes__title'>Notes</h2>
